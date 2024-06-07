@@ -6,7 +6,6 @@
     color: inherit;
 }
 body{
-    padding: 2em;
     color: #0f0f0f;
     background: #e1e1e1;
 }
@@ -16,6 +15,9 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 3em;
+    background: #0f0f0f;
+    color: #e1e1e1;
+    padding: 2em;
 }
 
 .logo {
@@ -30,27 +32,45 @@ body{
     div{
 
         a {
-            font-size: 1.2rem;
-    
+            font-size: 1rem;
+            position: relative;
+
+            &:focus,
             &.active {
-                color: #7e6363;
-                border-bottom: 1px solid #7e6363;
+                color: #e28c8c;
             }
-            &:hover {
-                color: #7e6363;
-                border-bottom: 1px solid #7e6363;
-                animation: hover-menu .5s forwards;
+
+            &::after {
+                content: '';
+                height: 2px;
+                width: 100%;
+                background-color: #e28c8c;
+                position: absolute;
+                left: 0;
+                bottom: -8px;
+                opacity: 0;
+                transition: all 0.3s;
+            }
+
+            &:hover::after,
+            &:focus::after,
+            &.active::after {
+                opacity: 1;
             }
         }
     }
     
 }
 
-@keyframes hover-menu {
-    0%, 30% {
-      min-width: 0%;
+.access {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    & .connexion {
+        
+        button {
+            
+        }
     }
-    100% {
-      width: 100%;
-    }
-  }
+}
